@@ -1,0 +1,5 @@
+example_id                                                              | status | run_time        |
+----------------------------------------------------------------------- | ------ | --------------- |
+./spec/integration/repositories/company_price_close_repo_spec.rb[1:1:1] | passed | 0.08225 seconds |
+./spec/integration/repositories/company_repo_spec.rb[1:1:1]             | passed | 0.61673 seconds |
+./spec/integration/repositories/company_score_repo_spec.rb[1:1:1]       | passed | 0.07377 seconds |
