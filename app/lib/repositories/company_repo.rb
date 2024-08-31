@@ -11,13 +11,12 @@ module Repositories
     end
 
     def get_results
-      Company.all
+      Company
         .select(
           "companies.*",
           calculated_price
         )
         .includes(:company_score)
-        .includes(:company_price_close)
     end
 
     private
@@ -28,7 +27,7 @@ module Repositories
       <<-SQL
         (SELECT company_price_closes.price
           FROM company_price_closes
-          INNER JOIN companies
+          INNER JOIN companies comps
           ON companies.id = company_price_closes.company_id
           ORDER BY company_price_closes.date DESC
         ) as "price"

@@ -55,4 +55,41 @@ RSpec.describe Repositories::CompanyRepo do
       expect { batch_create }.to change { Company.count }.by(3)
     end
   end
+
+  describe "#get_results" do
+    subject(:get_results) do
+      described_class.new.get_results
+    end
+
+    context "when company exists" do
+      let!(:company_1) { FactoryBot.create(:company) }
+      let!(:company_2) { FactoryBot.create(:company) }
+      let!(:company_3) { FactoryBot.create(:company) }
+  
+      let!(:company_score_1) { FactoryBot.create(:company_score, company: company_1) }
+      let!(:company_score_2) { FactoryBot.create(:company_score, company: company_2) }
+      let!(:company_score_3) { FactoryBot.create(:company_score, company: company_3) }
+  
+      let!(:company_1_company_price_close_1) { FactoryBot.create(:company_price_close, company: company_1, price: 20.0, date: 2.day.ago) }
+      let!(:company_1_company_price_close_2) { FactoryBot.create(:company_price_close, company: company_1, price: 15.0, date: 1.day.ago) }
+
+      let!(:company_2_company_price_close_1) { FactoryBot.create(:company_price_close, company: company_2, price: 25.0, date: 3.day.ago) }
+      let!(:company_2_company_price_close_2) { FactoryBot.create(:company_price_close, company: company_2, price: 20.0, date: 2.day.ago) }
+
+      let!(:company_3_company_price_close_1) { FactoryBot.create(:company_price_close, company: company_3, price: 28.0, date: 4.day.ago) }
+      let!(:company_3_company_price_close_2) { FactoryBot.create(:company_price_close, company: company_3, price: 24.0, date: 3.day.ago) }
+      
+      it "returns companies" do
+        expect(get_results.map(&:id)).to match_unordered_elements(company_1.id, company_2.id, company_3.id)
+        expect(get_results.map(&:price)).to match_unordered_elements(15.0, 20.0, 24.0)
+        expect(get_results.map(&:company_score).map(&:company_id)).to match_unordered_elements(company_1.id, company_2.id, company_3.id)
+      end
+    end
+    
+    context "when company does not exist" do
+      it "returns empty array" do
+        expect(get_results).to be_empty
+      end
+    end
+  end
 end
