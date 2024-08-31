@@ -22,20 +22,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_31_000647) do
     t.string "listing_currency_iso"
     t.string "canonical_url"
     t.string "unique_symbol_slug"
-    t.integer "company_score_id", null: false
-    t.index ["company_score_id"], name: "index_companies_on_company_score_id"
+    t.integer "score_id"
   end
 
   create_table "company_price_closes", force: :cascade do |t|
     t.date "date"
-    t.integer "company_id", null: false
+    t.string "company_id"
     t.float "price"
     t.datetime "date_created"
-    t.index ["company_id"], name: "index_company_price_closes_on_company_id"
   end
 
   create_table "company_scores", force: :cascade do |t|
-    t.integer "company_id", null: false
+    t.string "company_id"
     t.datetime "date_generated"
     t.integer "dividend"
     t.integer "future"
@@ -46,10 +44,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_31_000647) do
     t.integer "misc"
     t.integer "total"
     t.string "sentence"
-    t.index ["company_id"], name: "index_company_scores_on_company_id"
   end
-
-  add_foreign_key "companies", "company_scores"
-  add_foreign_key "company_price_closes", "companies"
-  add_foreign_key "company_scores", "companies"
 end

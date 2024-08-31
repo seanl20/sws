@@ -12,7 +12,7 @@ class CreateCompany < ActiveRecord::Migration[7.2]
       t.string :listing_currency_iso
       t.string :canonical_url
       t.string :unique_symbol_slug
-      t.references :company_score, null: false, foreign_key: true
+      t.integer :score_id
     end
   end
 end

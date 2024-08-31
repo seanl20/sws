@@ -1,7 +1,7 @@
 class CreateCompanyScore < ActiveRecord::Migration[7.2]
   def change
     create_table :company_scores do |t|
-      t.references :company, null: false, foreign_key: true
+      t.string :company_id
       t.datetime :date_generated
       t.integer :dividend
       t.integer :future
