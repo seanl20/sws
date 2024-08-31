@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get "results", to: "results#index"
+  get "results", to: "results#index", defaults: {format: :json}
 end
