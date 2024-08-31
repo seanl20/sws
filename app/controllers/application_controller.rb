@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::API
-  def cursor_pagination(collection, pagination_options = {})
-    paginator = collection.cursor_paginate(**pagination_options)
+  include Pagy::Backend
+  
+  def pagination_params
+    {
+      page: safe_params[:page],
+      items: safe_params[:per_page]
+    }.compact
+  end
 
-    page = paginator.fetch
-    records = page.records
-
-    [page, records]
+  def pagy_with_params(collection, vars = {})
+    pagy(collection, vars.merge(pagination_params))
   end
 end
