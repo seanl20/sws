@@ -18,7 +18,7 @@ module Commands
     end
 
     def read_company_score_csv_file
-      File.read(Rails.root.join('lib','csv_files','company_score.csv'))
+      File.read(Rails.root.join("lib", "csv_files", "company_score.csv"))
     end
 
     def parse_to_csv(csv_text:)

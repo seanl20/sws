@@ -17,7 +17,7 @@ module Repositories
           calculated_price
         )
         .includes(:company_score)
-        .includes(:company_price_close)
+        .includes(:company_price_closes)
     end
 
     private

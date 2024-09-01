@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
   include Pagy::Backend
-  
+
   def pagination_params
     {
       page: safe_params[:page],

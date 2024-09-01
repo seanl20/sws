@@ -35,48 +35,84 @@ RSpec.describe "GET /results", type: :request do
 
     let!(:company_3_company_price_close_1) { FactoryBot.create(:company_price_close, company: company_3, price: 28.0, date: 4.day.ago) }
     let!(:company_3_company_price_close_2) { FactoryBot.create(:company_price_close, company: company_3, price: 24.0, date: 3.day.ago) }
-    
+
     it "returns companies" do
       results
 
       expect(response).to have_http_status(200)
       expect(json["results"]).to match_unordered_elements(
         {
-          "id"=>company_1.id, 
-          "name"=>"Test01", 
-          "unique_symbol_code"=>"TST:TST", 
-          "share_price"=>15.0, 
-          "score_dividend"=>0, 
-          "score_future"=>5, 
-          "score_health"=>4, 
-          "score_management"=>0, 
-          "score_past"=>0, 
-          "score_value"=>0, 
-          "score_total"=>9
+          "id" => company_1.id,
+          "name" => "Test01",
+          "unique_symbol_code" => "TST:TST",
+          "share_price" => 15.0,
+          "overall_snowflake_score" => {
+            "score_dividend" => 0,
+            "score_future" => 5,
+            "score_health" => 4,
+            "score_past" => 0,
+            "score_value" => 0
+          },
+          "score_management" => 0,
+          "score_total" => 9,
+          "company_price_closes" => [
+            {
+              "date" => 2.day.ago.to_date.to_s,
+              "price" => 20.0
+            },
+            {
+              "date" => 1.day.ago.to_date.to_s,
+              "price" => 15.0
+            }
+          ]
         }, {
-          "id"=>company_2.id, 
-          "name"=>"Test01", 
-          "unique_symbol_code"=>"TST:TST", 
-          "share_price"=>20.0, 
-          "score_dividend"=>0, 
-          "score_future"=>5, 
-          "score_health"=>4, 
-          "score_management"=>0, 
-          "score_past"=>0, 
-          "score_value"=>0, 
-          "score_total"=>9
+          "id" => company_2.id,
+          "name" => "Test01",
+          "unique_symbol_code" => "TST:TST",
+          "share_price" => 20.0,
+          "overall_snowflake_score" => {
+            "score_dividend" => 0,
+            "score_future" => 5,
+            "score_health" => 4,
+            "score_past" => 0,
+            "score_value" => 0
+          },
+          "score_management" => 0,
+          "score_total" => 9,
+          "company_price_closes" => [
+            {
+              "date" => 3.day.ago.to_date.to_s,
+              "price" => 25.0
+            },
+            {
+              "date" => 2.day.ago.to_date.to_s,
+              "price" => 20.0
+            }
+          ]
         }, {
-          "id"=>company_3.id, 
-          "name"=>"Test01", 
-          "unique_symbol_code"=>"TST:TST", 
-          "share_price"=>24.0, 
-          "score_dividend"=>0, 
-          "score_future"=>5, 
-          "score_health"=>4, 
-          "score_management"=>0, 
-          "score_past"=>0, 
-          "score_value"=>0, 
-          "score_total"=>9
+          "id" => company_3.id,
+          "name" => "Test01",
+          "unique_symbol_code" => "TST:TST",
+          "share_price" => 24.0,
+          "overall_snowflake_score" => {
+            "score_dividend" => 0,
+            "score_future" => 5,
+            "score_health" => 4,
+            "score_past" => 0,
+            "score_value" => 0
+          },
+          "score_management" => 0,
+          "score_total" => 9,
+          "company_price_closes" => [
+            {
+              "date" => 4.day.ago.to_date.to_s,
+              "price" => 28.0
+            },
+            {
+              "date" => 3.day.ago.to_date.to_s,
+              "price" => 24.0
+            }
+          ]
         }
       )
     end
