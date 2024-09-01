@@ -17,9 +17,17 @@ To run the app, use `rails s`. You can access the app by visiting `localhost:300
 ### Application
 To access the application for this task, all you need is to visit `localhost:3000/results` in your browser or postman.
 
-you should be able to see results like the images below.
-![Browser Image](./lib/images/browser_results.png)
-![Postman Image](./lib/images/postman_results.png)
+you should be able to see results like the images below depending on if you passed the optional parameter.
+
+No Parameters:
+
+![Browser Image](./lib/images/browser_results_no_parameter.png)
+![Postman Image](./lib/images/postman_results_no_parameter.png)
+
+With Optional Parameter:
+
+![Browser Image](./lib/images/browser_results_with_parameter.png)
+![Postman Image](./lib/images/postman_results_with_parameter.png)
 
 ### Testing
 For test, the system used for is rspec.
