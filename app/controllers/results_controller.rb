@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  # TODO add functionlity for some sorting and filter to the API.
   # schema(:index) do
   # optional(:sort_by).value(Types::Strict::String)
   # optional(:sort_direction).value(Types::SortDirections)
