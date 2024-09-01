@@ -373,6 +373,7 @@ DEPENDENCIES
   rails (~> 7.2.1)
   rspec
   rspec-rails
+  rubocop
   rubocop-rails-omakase
   simplecov
   sqlite3 (>= 1.4)
