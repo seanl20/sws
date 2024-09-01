@@ -13,17 +13,11 @@ json.results do
     end
     json.score_management result.company_score.management
     json.score_total result.company_score.total
-    json.company_price_closes result.company_price_closes do |price_close|
-      json.date price_close.date
-      json.price price_close.price
+    if @prices_data
+      json.company_price_closes result.company_price_closes do |price_close|
+        json.date price_close.date
+        json.price price_close.price
+      end
     end
-  end
-end
-
-if @pagy.present?
-  json.pagination do
-    json.page @pagy.page
-    json.total_results @pagy.count
-    json.has_next_page @pagy.next.present?
   end
 end
