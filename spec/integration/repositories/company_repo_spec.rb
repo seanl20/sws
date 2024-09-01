@@ -56,9 +56,9 @@ RSpec.describe Repositories::CompanyRepo do
     end
   end
 
-  describe "#get_results" do
-    subject(:get_results) do
-      described_class.new.get_results
+  describe "#get_all" do
+    subject(:get_all) do
+      described_class.new.get_all
     end
 
     context "when company exists" do
@@ -80,15 +80,15 @@ RSpec.describe Repositories::CompanyRepo do
       let!(:company_3_company_price_close_2) { FactoryBot.create(:company_price_close, company: company_3, price: 24.0, date: 3.day.ago) }
       
       it "returns companies" do
-        expect(get_results.map(&:id)).to match_unordered_elements(company_1.id, company_2.id, company_3.id)
-        expect(get_results.map(&:price)).to match_unordered_elements(15.0, 20.0, 24.0)
-        expect(get_results.map(&:company_score).map(&:company_id)).to match_unordered_elements(company_1.id, company_2.id, company_3.id)
+        expect(get_all.map(&:id)).to match_unordered_elements(company_1.id, company_2.id, company_3.id)
+        expect(get_all.map(&:price)).to match_unordered_elements(15.0, 20.0, 24.0)
+        expect(get_all.map(&:company_score).map(&:company_id)).to match_unordered_elements(company_1.id, company_2.id, company_3.id)
       end
     end
     
     context "when company does not exist" do
       it "returns empty array" do
-        expect(get_results).to be_empty
+        expect(get_all).to be_empty
       end
     end
   end

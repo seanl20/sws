@@ -1,7 +1,9 @@
-example_id                                                    | status | run_time        |
-------------------------------------------------------------- | ------ | --------------- |
-./spec/integration/repositories/company_repo_spec.rb[1:1:1]   | passed | 0.0309 seconds  |
-./spec/integration/repositories/company_repo_spec.rb[1:2:1:1] | passed | 0.09229 seconds |
-./spec/integration/repositories/company_repo_spec.rb[1:2:2:1] | passed | 0.00509 seconds |
-./spec/requests/results/index_spec.rb[1:1:1]                  | passed | 0.1618 seconds  |
-./spec/requests/results/index_spec.rb[1:2:1]                  | passed | 0.07272 seconds |
+example_id                                                              | status | run_time        |
+----------------------------------------------------------------------- | ------ | --------------- |
+./spec/integration/repositories/company_price_close_repo_spec.rb[1:1:1] | passed | 0.06289 seconds |
+./spec/integration/repositories/company_repo_spec.rb[1:1:1]             | passed | 0.03273 seconds |
+./spec/integration/repositories/company_repo_spec.rb[1:2:1:1]           | passed | 0.08189 seconds |
+./spec/integration/repositories/company_repo_spec.rb[1:2:2:1]           | passed | 0.00599 seconds |
+./spec/integration/repositories/company_score_repo_spec.rb[1:1:1]       | passed | 0.04117 seconds |
+./spec/requests/results/index_spec.rb[1:1:1]                            | passed | 0.18578 seconds |
+./spec/requests/results/index_spec.rb[1:2:1]                            | passed | 0.18318 seconds |

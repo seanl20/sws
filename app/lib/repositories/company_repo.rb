@@ -10,17 +10,17 @@ module Repositories
       end
     end
 
-    def get_results
+    def get_all
       Company
         .select(
           "companies.*",
           calculated_price
         )
         .includes(:company_score)
+        .includes(:company_price_close)
     end
 
     private
-    
 
     # This only works if it is part of a query that is also joined to performance_units (or includes them)
     def calculated_price

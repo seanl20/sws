@@ -1,7 +1,7 @@
 module Queries
   class Results
     def call
-      companies = company_repo.get_results
+      companies = company_repo.get_all
     end
 
     private
