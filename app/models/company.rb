@@ -4,6 +4,7 @@ class Company < ApplicationRecord
 
   before_validation :set_id, on: :create
 
+  # set UUID as the sqlite3 for ruby on rails does not have UUID compability.
   def set_id
     self.id ||= SecureRandom.uuid
   end

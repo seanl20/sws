@@ -22,7 +22,7 @@ module Repositories
 
     private
 
-    # This only works if it is part of a query that is also joined to performance_units (or includes them)
+    # This is to get the latest company price.
     def calculated_price
       <<-SQL
         (SELECT company_price_closes.price

@@ -1,9 +1,9 @@
 example_id                                                              | status | run_time        |
 ----------------------------------------------------------------------- | ------ | --------------- |
-./spec/integration/repositories/company_price_close_repo_spec.rb[1:1:1] | passed | 0.02371 seconds |
-./spec/integration/repositories/company_repo_spec.rb[1:1:1]             | passed | 0.03543 seconds |
-./spec/integration/repositories/company_repo_spec.rb[1:2:1:1]           | passed | 0.0735 seconds  |
-./spec/integration/repositories/company_repo_spec.rb[1:2:2:1]           | passed | 0.00447 seconds |
-./spec/integration/repositories/company_score_repo_spec.rb[1:1:1]       | passed | 0.07761 seconds |
-./spec/requests/results/index_spec.rb[1:1:1]                            | passed | 0.10937 seconds |
-./spec/requests/results/index_spec.rb[1:2:1]                            | passed | 0.08786 seconds |
+./spec/integration/repositories/company_price_close_repo_spec.rb[1:1:1] | passed | 0.03747 seconds |
+./spec/integration/repositories/company_repo_spec.rb[1:1:1]             | passed | 0.06403 seconds |
+./spec/integration/repositories/company_repo_spec.rb[1:2:1:1]           | passed | 0.0787 seconds  |
+./spec/integration/repositories/company_repo_spec.rb[1:2:2:1]           | passed | 0.00476 seconds |
+./spec/integration/repositories/company_score_repo_spec.rb[1:1:1]       | passed | 0.03478 seconds |
+./spec/requests/results/index_spec.rb[1:1:1]                            | passed | 0.01995 seconds |
+./spec/requests/results/index_spec.rb[1:2:1]                            | passed | 0.20505 seconds |
